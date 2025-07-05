@@ -52,7 +52,7 @@
 <h3>Installation Steps</h3>
 <ol>
     <li><strong>Clone the repository</strong>:
-        <pre>git clone [repository-url]</pre>
+        <pre>git clone https://github.com/charishma-v2509/Text-Summarizer</pre>
     </li>
     <li><strong>Backend setup</strong>:
         <pre>cd backend
