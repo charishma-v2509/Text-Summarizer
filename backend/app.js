@@ -1,20 +1,23 @@
-// app.js
-
 const express = require("express");
 const cors = require("cors");
-const summaryRoutes = require("./routes/summaryRoutes");
+const path = require("path");
 
 const app = express();
-const path = require("path");
 
 // Middleware
 app.use(cors());
-app.use(express.json()); // for parsing JSON request bodies
+app.use(express.json());
 
-// Routes
-app.use("/api", summaryRoutes);
+// API Routes
+app.use("/api", require("./routes/summaryRoutes"));
 
-app.use(express.static(path.join(__dirname, 'public')));
+// Serve React build in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "..", "client", "build")));
 
-// Export app to use in server.js
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "..", "client", "build", "index.html"));
+  });
+}
+
 module.exports = app;
