@@ -1,5 +1,4 @@
 # Text-Summarizer
-<h1>AI Text Summarizer</h1>
 <p>A web application that uses T5 Transformer AI to generate summaries of input text with customizable length and format options.</p>
 
 <h2>Table of Contents</h2>
